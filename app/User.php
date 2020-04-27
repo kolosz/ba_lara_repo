@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function times()
+    {
+        return $this->hasMany(Times::class);
+        // select * from times where user_id = id
+    }
+
+    public function management()
+    {
+        return $this->hasOne(Management::class);
+    }
+
 }

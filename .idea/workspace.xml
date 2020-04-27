@@ -123,7 +123,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\time_recording\app" />
+      <recent name="C:\xampp\htdocs\time_recording\app\Providers" />
+      <recent name="C:\xampp\htdocs\time_recording\resources\views\layouts" />
+      <recent name="C:\xampp\htdocs\time_recording\resources\views" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -142,7 +150,25 @@
       <option name="presentableId" value="Default" />
       <updated>1585046916682</updated>
       <workItem from="1585046920606" duration="75000" />
-      <workItem from="1585047191409" duration="73000" />
+      <workItem from="1585047191409" duration="2708000" />
+      <workItem from="1585135187936" duration="9322000" />
+      <workItem from="1585300403363" duration="2369000" />
+      <workItem from="1585554040113" duration="8288000" />
+      <workItem from="1585639108354" duration="1252000" />
+      <workItem from="1585722077749" duration="3852000" />
+      <workItem from="1586157912284" duration="12012000" />
+      <workItem from="1586329627998" duration="8359000" />
+      <workItem from="1586415307426" duration="1042000" />
+      <workItem from="1586416397652" duration="2658000" />
+      <workItem from="1586847991954" duration="6232000" />
+      <workItem from="1586941342454" duration="600000" />
+      <workItem from="1587023763157" duration="1881000" />
+      <workItem from="1587104995250" duration="6410000" />
+      <workItem from="1587380512083" duration="1815000" />
+      <workItem from="1587454773975" duration="12285000" />
+      <workItem from="1587542265050" duration="5685000" />
+      <workItem from="1587642042577" duration="599000" />
+      <workItem from="1587711800612" duration="599000" />
     </task>
     <servers />
   </component>
@@ -155,13 +181,29 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="162" key="SettingsEditor" timestamp="1585047261288">
+    <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586416345413">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585047261288" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1585047218354">
+    <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1586416345413" />
+    <state x="718" y="334" key="NewPhpClassDialog" timestamp="1586164913954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585047218354" />
+    <state x="718" y="334" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1586164913954" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1586164885966">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1586164885966" />
+    <state x="425" y="153" key="SettingsEditor" timestamp="1586345881050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="425" y="153" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1586345881050" />
+    <state x="528" y="361" key="com.intellij.ide.util.TipDialog" timestamp="1587712170067">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="528" y="361" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1587712170067" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585145484384">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585145484384" />
   </component>
 </project>
