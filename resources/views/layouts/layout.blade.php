@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Laravel</title>
 
@@ -68,5 +69,50 @@
 </head>
 <body>
     @yield ('content')
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script>
+        jQuery(document).ready(function(){
+         jQuery('#start-btn').on('submit', (function(e){
+            e.preventDefault();
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            jQuery.ajax({
+                url: "{{ url('/home') }}",
+                method: 'post',
+                success: function(result){
+                    jQuery('.alert').show();
+                    jQuery('.alert').html(result.success);
+                }});
+         }));
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('#stop-btn').on('submit', (function(e){
+                e.preventDefault();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                jQuery.ajax({
+                    url: "{{ url('/home') }}",
+                    method: 'post',
+                    success: function(result){
+                        jQuery('.alert').show();
+                        jQuery('.alert').html(result.success);
+                    }});
+            }));
+        });
+    </script>
 </body>
 </html>

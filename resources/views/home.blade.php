@@ -21,8 +21,12 @@
                     <br>
                     <!-- try to implement basic functions -->
                     <div class="time-recording">
+
+                        <!-- AJAX SUCKS -->
+
                         <div id="start">
-                            <form action="app/Http/Controllers/HomeController.php">
+                            <form id="start-form" method="post">
+                                @csrf
                                 <input
                                     type="submit"
                                     id="start-btn"
@@ -32,6 +36,9 @@
                                 <p id="start-lbl">you did not started working yet.</p>
                             </form>
                         </div>
+
+                        <!-- AJAX SUCKS -->
+
                         <div id="pause">
                             <form action="" method="post">
                                 <input
@@ -43,8 +50,12 @@
                                 <p id="pause-lbl">you did not took a break yet.</p>
                             </form>
                         </div>
+
+                        <!-- AJAX SUCKS -->
+
                         <div id="stop">
-                            <form action="" method="post">
+                            <form id="stop-form" method="post">
+                                @csrf
                                 <input
                                     type="submit"
                                     id="stop-btn"
@@ -54,6 +65,9 @@
                                 <p id="stop-lbl">... test ... </p>
                             </form>
                         </div>
+
+                        <!-- AJAX SUCKS -->
+
                     </div>
                 </div>
             </div>

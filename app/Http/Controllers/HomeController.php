@@ -34,17 +34,29 @@ class HomeController extends Controller
 
     public function startWork()
     {
-        $conn = DB::table('times');
-        $query = "INSERT INTO times (user_id, clocked_in) VALUES ({{ auth()->user()->id }}, CURRENT_TIMESTAMP())";
-        $conn->query($query);
+        try
+        {
+            $id = DB::table('times')->insertGetId(
+                ['user_id' => 1, 'clocked_in' => now()]
+            );
+        }
+        catch(Exception $e)
+        {
+            echo "bullshit";
+        }
     }
 
     public function endWork()
     {
-        // problem is that 2 seperate rows are going to be created; need to connect them somehow
-
-        $conn = DB::table('times');
-        $query = "INSERT INTO times (clocked_out) VALUES (CURRENT_TIMESTAMP())";
-        $conn->query($query);
+        try
+        {
+            $id = DB::table('times')->insertGetId(
+                ['user_id' => 1, 'clocked_out' => now()]
+            );
+        }
+        catch(Exception $e)
+        {
+            echo "bullshit";
+        }
     }
 }
