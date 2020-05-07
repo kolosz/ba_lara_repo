@@ -71,48 +71,7 @@
     @yield ('content')
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script>
-        jQuery(document).ready(function(){
-         jQuery('#start-btn').on('submit', (function(e){
-            e.preventDefault();
+    <script src="{{ asset('js/home.js') }}"></script>
 
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            jQuery.ajax({
-                url: "{{ url('/home') }}",
-                method: 'post',
-                success: function(result){
-                    jQuery('.alert').show();
-                    jQuery('.alert').html(result.success);
-                }});
-         }));
-        });
-    </script>
-
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('#stop-btn').on('submit', (function(e){
-                e.preventDefault();
-
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-
-                jQuery.ajax({
-                    url: "{{ url('/home') }}",
-                    method: 'post',
-                    success: function(result){
-                        jQuery('.alert').show();
-                        jQuery('.alert').html(result.success);
-                    }});
-            }));
-        });
-    </script>
 </body>
 </html>

@@ -32,31 +32,23 @@ class HomeController extends Controller
 
     // work starts here
 
-    public function startWork()
+    public function findAction(\Illuminate\Http\Request $request)
     {
-        try
+        if ($request->has('start-btn'))
         {
-            $id = DB::table('times')->insertGetId(
-                ['user_id' => 1, 'clocked_in' => now()]
-            );
+            return $this->dispatch(new \App\Jobs\WorkStart($request));
         }
-        catch(Exception $e)
+        else if ($request->has('stop-btn'))
         {
-            echo "bullshit";
+            return $this->dispatch(new \App\Jobs\WorkStop($request));
         }
+        else if ($request->has('pause-btn'))
+        {
+            return $this->dispatch(new \App\Jobs\WorkStop($request));
+        }
+
+        return 'no action found';
     }
 
-    public function endWork()
-    {
-        try
-        {
-            $id = DB::table('times')->insertGetId(
-                ['user_id' => 1, 'clocked_out' => now()]
-            );
-        }
-        catch(Exception $e)
-        {
-            echo "bullshit";
-        }
-    }
+
 }

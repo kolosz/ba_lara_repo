@@ -24,8 +24,7 @@ Route::get('/admin_base', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home.index');
-Route::post('/home', 'HomeController@startWork')->name('home.start');
-Route::post('/home', 'HomeController@endWork')->name('home.end');
+Route::post('/home', 'HomeController@findAction')->name('home.find');
 
 //Route::get('/home', 'HomeController@getName');
 

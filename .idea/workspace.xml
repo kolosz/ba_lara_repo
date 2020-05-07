@@ -11,6 +11,13 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
@@ -173,7 +180,7 @@
       <workItem from="1587642042577" duration="599000" />
       <workItem from="1587711800612" duration="599000" />
       <workItem from="1587974540470" duration="3253000" />
-      <workItem from="1588143954923" duration="18110000" />
+      <workItem from="1588143954923" duration="29766000" />
     </task>
     <servers />
   </component>
@@ -226,5 +233,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585145484384" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/js/home.js</url>
+          <line>29</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

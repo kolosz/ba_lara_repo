@@ -41,6 +41,7 @@
 
                         <div id="pause">
                             <form action="" method="post">
+                                @csrf
                                 <input
                                     type="submit"
                                     id="pause-btn"
