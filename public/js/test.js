@@ -2,27 +2,20 @@ $(document).ready(function(){
     $('#start_btn').click(function (e) {
         e.preventDefault();
 
-        console.log("1");
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
 
-        console.log("2");
-
         $.ajax({
             type: 'post',
-            url: "/home",
-            data: { start_btn: "start_btn"},
+            url: "{{ route('home.find') }}",
             success: function(result){
                 alert("Welcome!");
-                console.log("3");
                 console.log(result);
             },
             error: function (result) {
-                console.log("4");
                 console.log(result)
             }
         })

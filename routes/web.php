@@ -17,15 +17,38 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin_base', function () {
-    return view('admin_base');
+/*
+Route::get('/denied', function () {
+    return view('denied');
 });
+*/
+
+Route::get('/logout', function(){
+    Auth::logout();
+    return Redirect::to('login');
+});
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home.index');
-Route::post('/home', 'HomeController@findAction')->name('home.find');
 
-//Route::get('/home', 'HomeController@getName');
+Route::group(['middleware'=> ['auth']], function() {
+    Route::get('/home', 'HomeController@index')->name('home.index');
+    Route::post('/home', 'HomeController@findAction')->name('home.find');
+    Route::get('/denied', 'HomeController@permissionDenied')->name('home.permissionDenied');
+    // admin rights handled inside of the controller __construct
+    Route::get('/admin_base', 'AdminController@index')->name('admin_base');
+    Route::get('/manager', 'SuperUserController@index')->name('manager');
+    // routes for rights management ->should not be hardcoded; better implementation would be dynamic for every role
+    Route::get('/admin_base/remove-admin/{userId}', 'AdminController@removeAdmin');
+    Route::get('/admin_base/give-admin/{userId}', 'AdminController@giveAdmin');
+});
 
-// Route::get('/admin_base', 'HomeController@index')->name('admin_base');
+
+
+
+//Route::get('/home', 'HomeController@index')->name('home.index');
+//Route::get('/denied', 'HomeController@permissionDenied')->name('home.permissionDenied');
+//Route::post('/home', 'HomeController@findAction')->name('home.find');
+//Route::get('/admin_base', 'AdminController@index')->name('admin_base');
+//Route::get('/manager', 'SuperUserController@index')->name('manager');

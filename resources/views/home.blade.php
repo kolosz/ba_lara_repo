@@ -1,15 +1,31 @@
-@extends('layouts/layout')
+@extends('layouts/app')
 
 
 
 @section('content')
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
-
                 <div class="card-body">
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ url('/') }}">Welcome</a>
+                            <br>
+                            <a href="{{ url('/logout') }}">Logout</a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -18,27 +34,31 @@
                     <!-- here my work starts -->
                     <p>Welcome {{ auth()->user()->name }}</p>
                     <p>You are logged in!</p>
+
+                    <!-- only viewable for admins -->
+                    <div class="links">
+                        @if(Auth::user()->hasRole('admin'))
+                            <a class="btn btn-primary btn-lg" href="/admin_base">Admin Page</a>
+                        @endif
+                    </div>
                     <br>
+                    <br>
+
                     <!-- try to implement basic functions -->
                     <div class="time-recording">
-
                         <!-- AJAX SUCKS -->
-
                         <div id="start">
-                            <form id="start-form" method="post">
-                                @csrf
-                                <input
-                                    type="submit"
-                                    id="start-btn"
-                                    name="start-btn"
-                                    value="start"
-                                >
-                                <p id="start-lbl">you did not started working yet.</p>
-                            </form>
+                            @csrf
+                            <button
+                                class="btn btn-primary btn-lg"
+                                type="button"
+                                id="start_btn"
+                                name="start_btn"
+                                value="start"
+                            >start</button>
+                            <p id="start-lbl">you did not started working yet.</p>
                         </div>
-
                         <!-- AJAX SUCKS -->
-
                         <div id="pause">
                             <form action="" method="post">
                                 @csrf
@@ -46,29 +66,24 @@
                                     type="submit"
                                     id="pause-btn"
                                     name="pause-btn"
-                                    value="pause"
+                                    value="start pause"
                                 >
                                 <p id="pause-lbl">you did not took a break yet.</p>
                             </form>
                         </div>
-
                         <!-- AJAX SUCKS -->
-
                         <div id="stop">
-                            <form id="stop-form" method="post">
-                                @csrf
-                                <input
-                                    type="submit"
-                                    id="stop-btn"
-                                    name="stop-btn"
-                                    value="stop"
-                                >
-                                <p id="stop-lbl">... test ... </p>
-                            </form>
+                            @csrf
+                            <button
+                                class="btn btn-primary btn-lg"
+                                type="submit"
+                                id="stop-btn"
+                                name="stop-btn"
+                                value="stop"
+                            >stop</button>
+                            <p id="stop-lbl">... test ... </p>
                         </div>
-
                         <!-- AJAX SUCKS -->
-
                     </div>
                 </div>
             </div>
@@ -109,4 +124,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection

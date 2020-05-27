@@ -18,9 +18,9 @@ class WorkStart implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data = $data;
+        //
     }
 
     /**
@@ -38,7 +38,7 @@ class WorkStart implements ShouldQueue
         }
         catch(Exception $e)
         {
-            echo "bullshit";
+            echo "crap";
         }
     }
 }

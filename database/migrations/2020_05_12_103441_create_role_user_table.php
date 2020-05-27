@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTimesTable extends Migration
+class CreateRoleUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateTimesTable extends Migration
      */
     public function up()
     {
-        Schema::create('times', function (Blueprint $table) {
-            $table->id();
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('clocked_in')->nullable(true);
-            $table->timestamp('clocked_out')->nullable(true);
-            $table->timestamps();
 
+            $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+
         });
     }
 
@@ -31,6 +30,6 @@ class CreateTimesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('times');
+        Schema::dropIfExists('role_user');
     }
 }

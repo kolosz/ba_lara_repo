@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Support\Facades\Input;
 use App\Home;
 use App\Times;
 use Illuminate\Contracts\Support\Renderable;
@@ -30,21 +31,27 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function permissionDenied()
+    {
+        return view('denied');
+    }
+
     // work starts here
 
-    public function findAction(\Illuminate\Http\Request $request)
+    public function findAction()
     {
-        if ($request->has('start-btn'))
+        if (Input::has('start_btn'))
         {
-            return $this->dispatch(new \App\Jobs\WorkStart($request));
+            
+            return $this->dispatch(new \App\Jobs\WorkStart());
         }
-        else if ($request->has('stop-btn'))
+        else if (Input::has('stop-btn'))
         {
-            return $this->dispatch(new \App\Jobs\WorkStop($request));
+            return $this->dispatch(new \App\Jobs\WorkStop());
         }
-        else if ($request->has('pause-btn'))
+        else if (Input::has('pause-btn'))
         {
-            return $this->dispatch(new \App\Jobs\WorkStop($request));
+            return $this->dispatch(new \App\Jobs\WorkPause());
         }
 
         return 'no action found';
