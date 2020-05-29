@@ -52,24 +52,24 @@
                             <button
                                 class="btn btn-primary btn-lg"
                                 type="button"
-                                id="start_btn"
-                                name="start_btn"
+                                id="start-btn"
+                                name="start-btn"
                                 value="start"
                             >start</button>
-                            <p id="start-lbl">you did not started working yet.</p>
+                            <p id="start-lbl">You did not started working yet.</p>
                         </div>
                         <!-- AJAX SUCKS -->
                         <div id="pause">
-                            <form action="" method="post">
-                                @csrf
-                                <input
-                                    type="submit"
-                                    id="pause-btn"
-                                    name="pause-btn"
-                                    value="start pause"
-                                >
-                                <p id="pause-lbl">you did not took a break yet.</p>
-                            </form>
+                            <button
+                                class="btn btn-primary btn-lg"
+                                type="button"
+                                id="pause-btn"
+                                name="pause-btn"
+                                value="pause"
+                                disabled
+                            >pause</button>
+                            <p id="pause-lbl">You did not take a break yet.</p>
+
                         </div>
                         <!-- AJAX SUCKS -->
                         <div id="stop">
@@ -80,8 +80,9 @@
                                 id="stop-btn"
                                 name="stop-btn"
                                 value="stop"
+                                disabled
                             >stop</button>
-                            <p id="stop-lbl">... test ... </p>
+                            <p id="stop-lbl">To end your workday, click here!</p>
                         </div>
                         <!-- AJAX SUCKS -->
                     </div>

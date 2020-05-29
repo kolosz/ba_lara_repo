@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use DB;
-use Illuminate\Support\Facades\Input;
 use App\Home;
 use App\Times;
 use Illuminate\Contracts\Support\Renderable;
@@ -11,6 +10,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -40,9 +40,40 @@ class HomeController extends Controller
 
     public function findAction()
     {
+        if (isset($_POST['start_btn']))
+        {
+            try
+            {
+                $id = DB::table('times')->insertGetId(
+                    ['user_id' => 1, 'clocked_in' => now()]
+                );
+            }
+            catch(Exception $e)
+            {
+                echo "crap: ", $e->getMessage(), "\n";
+            }
+        }
+        elseif  (isset($_POST['stop_btn']))
+        {
+            try
+            {
+                $id = DB::table('times')->insertGetId(
+                    ['user_id' => 1, 'clocked_out' => now()]
+                );
+            }
+            catch(Exception $e)
+            {
+                echo "crap: ", $e->getMessage(), "\n";
+            }
+        }
+        elseif (isset($_POST['pause_btn']))
+        {
+            // do stuff
+        }
+        /*
         if (Input::has('start_btn'))
         {
-            
+
             return $this->dispatch(new \App\Jobs\WorkStart());
         }
         else if (Input::has('stop-btn'))
@@ -53,7 +84,7 @@ class HomeController extends Controller
         {
             return $this->dispatch(new \App\Jobs\WorkPause());
         }
-
+*/
         return 'no action found';
     }
 
