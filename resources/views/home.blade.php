@@ -13,9 +13,7 @@
                 <div class="card-body">
                     <div class="top-right links">
                         @auth
-                            <a href="{{ url('/') }}">Welcome</a>
-                            <br>
-                            <a href="{{ url('/logout') }}">Logout</a>
+
                         @else
                             <a href="{{ route('login') }}">Login</a>
 
@@ -76,7 +74,7 @@
                             @csrf
                             <button
                                 class="btn btn-primary btn-lg"
-                                type="submit"
+                                type="button"
                                 id="stop-btn"
                                 name="stop-btn"
                                 value="stop"

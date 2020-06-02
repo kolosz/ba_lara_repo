@@ -33,12 +33,12 @@ class WorkStop implements ShouldQueue
         try
         {
             $id = DB::table('times')->insertGetId(
-                ['user_id' => 1, 'clocked_out' => now()]
+                ['user_id' => auth()->user()->id, 'clocked_out' => now()]
             );
         }
-        catch(Exception $e)
+        catch(\Exception $e)
         {
-            echo "bullshit";
+            echo "crap", $e->getMessage(), "\n";
         }
     }
 }

@@ -44,11 +44,9 @@ class HomeController extends Controller
         {
             try
             {
-                $id = DB::table('times')->insertGetId(
-                    ['user_id' => 1, 'clocked_in' => now()]
-                );
+                return $this->dispatch(new \App\Jobs\WorkStart());
             }
-            catch(Exception $e)
+            catch(\Exception $e)
             {
                 echo "crap: ", $e->getMessage(), "\n";
             }
@@ -57,35 +55,24 @@ class HomeController extends Controller
         {
             try
             {
-                $id = DB::table('times')->insertGetId(
-                    ['user_id' => 1, 'clocked_out' => now()]
-                );
+                return $this->dispatch(new \App\Jobs\WorkStop());
             }
-            catch(Exception $e)
+            catch(\Exception $e)
             {
                 echo "crap: ", $e->getMessage(), "\n";
             }
         }
-        elseif (isset($_POST['pause_btn']))
+        elseif (isset($_POST['pause_btn'])) // 2nd argument actionCounter
         {
-            // do stuff
+            try
+            {
+                return $this->dispatch(new \App\Jobs\WorkPause());
+            }
+            catch(\Exception $e)
+            {
+                echo "crap: ", $e->getMessage(), "\n";
+            }
         }
-        /*
-        if (Input::has('start_btn'))
-        {
-
-            return $this->dispatch(new \App\Jobs\WorkStart());
-        }
-        else if (Input::has('stop-btn'))
-        {
-            return $this->dispatch(new \App\Jobs\WorkStop());
-        }
-        else if (Input::has('pause-btn'))
-        {
-            return $this->dispatch(new \App\Jobs\WorkPause());
-        }
-*/
-        return 'no action found';
     }
 
 

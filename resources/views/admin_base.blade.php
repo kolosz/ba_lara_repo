@@ -8,6 +8,21 @@
             <div class="card">
                 <div class="card-header">AdminBase</div>
                 <div class="card-body">
+                    <div>
+                        @auth
+                            <a class="btn btn-primary" href="{{ url('/home') }}">
+                                Home
+                            </a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
+                <div class="card-body">
 
                     @foreach($users as $user)
                         <div class="row mb-4">

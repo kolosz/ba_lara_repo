@@ -30,8 +30,16 @@ class WorkPause implements ShouldQueue
      */
     public function handle()
     {
-        // here I need to find the already constructed rows and add pause to them
-        // but for now
-        echo 'it works.';
+        // trigger an action on first and on second button click
+        try
+        {
+            $id = DB::table('pauses')->insertGetId(
+                ['user_id' => auth()->user()->id, 'start_pause' => now()]
+            );
+        }
+        catch  (\Exception $e)
+        {
+            echo "crap", $e->getMessage(), "\n";
+        }
     }
 }

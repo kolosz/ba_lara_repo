@@ -21,8 +21,9 @@ $(document).ready(function(){
                 console.log(result.responseText);
                 alert("Welcome!");
                 $("#start-lbl").text("You start working at: " + new Date($.now()));
-                $('#start_btn').prop('disabled', true);
+                $('#start-btn').prop('disabled', true);
                 $('#stop-btn').prop('disabled', false);
+                $('#pause-btn').prop('disabled', false);
             },
             error: function (result) {
                 console.log(result.responseText);
@@ -49,7 +50,7 @@ $(document).ready(function(){
                 alert("Bye. See you soon.");
                 $("#stop-lbl").text("You stopped working at: " + new Date($.now()));
                 $("#start-lbl").text("You are done for today. Great job!");
-                $('#start_btn').prop('disabled', false);
+                $('#start-btn').prop('disabled', false);
                 $('#stop-btn').prop('disabled', true);
 
             },
@@ -64,6 +65,9 @@ $(document).ready(function(){
     $('#pause-btn').click(function (e) {
         e.preventDefault();
 
+        // actionCounter kann evntl. deleted werden wenn andere Möglichkeit gefunden wird+
+        var actionCounter = 0;
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -73,12 +77,21 @@ $(document).ready(function(){
         $.ajax({
             type: 'post',
             url: "/home",
-            data: { pause_btn: "pause-btn"},
+            data: { pause_btn: "pause-btn", actionCounter: actionCounter},
             success: function (result) {
-
+                if(actionCounter === 0)
+                {
+                    alert("0");
+                    actionCounter++;
+                }
+                else if(actionCounter === 1)
+                {
+                    alert("1");
+                    actionCounter--;
+                }
             },
             error: function (result) {
-
+                alert("error");
             }
         })
 
