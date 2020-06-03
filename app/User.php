@@ -58,6 +58,15 @@ class User extends Authenticatable
         // select * from times where user_id = id
     }
 
+    public function pauses()
+    {
+        return $this->hasMany(Pauses::class);
+    }
+    public function workingHours()
+    {
+        return $this->hasMany(WorkingHours::class);
+    }
+
     public function management()
     {
         return $this->hasOne(Management::class);

@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    $('#end-pause').hide();
+
     $('#start-btn').click(function (e) {
         e.preventDefault();
 
@@ -21,9 +23,10 @@ $(document).ready(function(){
                 console.log(result.responseText);
                 alert("Welcome!");
                 $("#start-lbl").text("You start working at: " + new Date($.now()));
+                // hide and seek
                 $('#start-btn').prop('disabled', true);
                 $('#stop-btn').prop('disabled', false);
-                $('#pause-btn').prop('disabled', false);
+                $('#start-pause-btn').prop('disabled', false);
             },
             error: function (result) {
                 console.log(result.responseText);
@@ -49,10 +52,12 @@ $(document).ready(function(){
                 console.log(result.responseText);
                 alert("Bye. See you soon.");
                 $("#stop-lbl").text("You stopped working at: " + new Date($.now()));
+                // hide and seek
                 $("#start-lbl").text("You are done for today. Great job!");
                 $('#start-btn').prop('disabled', false);
                 $('#stop-btn').prop('disabled', true);
-
+                $('#start-pause-btn').prop('disabled', true);
+                $('#end-pause-btn').prop('disabled', true);
             },
             error: function (result) {
                 console.log(result.responseText);
@@ -62,11 +67,8 @@ $(document).ready(function(){
 
     });
 
-    $('#pause-btn').click(function (e) {
+    $('#start-pause-btn').click(function (e) {
         e.preventDefault();
-
-        // actionCounter kann evntl. deleted werden wenn andere Möglichkeit gefunden wird+
-        var actionCounter = 0;
 
         $.ajaxSetup({
             headers: {
@@ -77,18 +79,45 @@ $(document).ready(function(){
         $.ajax({
             type: 'post',
             url: "/home",
-            data: { pause_btn: "pause-btn", actionCounter: actionCounter},
+            data: { start_pause_btn: "start-pause-btn" },
             success: function (result) {
-                if(actionCounter === 0)
-                {
-                    alert("0");
-                    actionCounter++;
-                }
-                else if(actionCounter === 1)
-                {
-                    alert("1");
-                    actionCounter--;
-                }
+                alert("Enjoy your break!");
+                // <p>
+                $("#end-pause-lbl").text("You started your break at: " + new Date($.now()));
+                // hide and seek
+                $('#end-pause').show();
+                $('#start-pause').hide();
+                $('#end-pause-btn').prop('disabled', false);
+                $('#stop-btn').prop('disabled', true);
+            },
+            error: function (result) {
+                alert("error");
+            }
+        })
+
+    })
+
+    $('#end-pause-btn').click(function (e) {
+        e.preventDefault();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: 'post',
+            url: "/home",
+            data: { end_pause_btn: "end-pause-btn" },
+            success: function (result) {
+                alert("Welcome to the 2nd half!");
+                // <p>
+                $("#start-pause-lbl").text("You ended your break at: " + new Date($.now()));
+                // hide and seek
+                $('#start-pause').show();
+                $('#end-pause').hide();
+                $('#stop-btn').prop('disabled', false);5
             },
             error: function (result) {
                 alert("error");

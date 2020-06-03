@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pause extends Model
+class WorkingHours extends Model
 {
     public function user()
     {

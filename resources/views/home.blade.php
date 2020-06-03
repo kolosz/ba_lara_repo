@@ -1,9 +1,6 @@
 @extends('layouts/app')
 
-
-
 @section('content')
-
 
 <div class="container">
     <div class="row justify-content-center">
@@ -32,7 +29,6 @@
                     <!-- here my work starts -->
                     <p>Welcome {{ auth()->user()->name }}</p>
                     <p>You are logged in!</p>
-
                     <!-- only viewable for admins -->
                     <div class="links">
                         @if(Auth::user()->hasRole('admin'))
@@ -41,10 +37,9 @@
                     </div>
                     <br>
                     <br>
-
-                    <!-- try to implement basic functions -->
+                    <!-- IMPLEMENT TIME RECORDING -->
                     <div class="time-recording">
-                        <!-- AJAX SUCKS -->
+                        <!-- START -->
                         <div id="start">
                             @csrf
                             <button
@@ -56,20 +51,32 @@
                             >start</button>
                             <p id="start-lbl">You did not started working yet.</p>
                         </div>
-                        <!-- AJAX SUCKS -->
-                        <div id="pause">
+                        <!-- PAUSE -->
+                        <div id="start-pause">
+                            @csrf
                             <button
                                 class="btn btn-primary btn-lg"
                                 type="button"
-                                id="pause-btn"
-                                name="pause-btn"
-                                value="pause"
+                                id="start-pause-btn"
+                                name="start-pause-btn"
+                                value="start pause"
                                 disabled
-                            >pause</button>
-                            <p id="pause-lbl">You did not take a break yet.</p>
-
+                            >start pause</button>
+                            <p id="start-pause-lbl">You did not take a break yet.</p>
                         </div>
-                        <!-- AJAX SUCKS -->
+                        <div id="end-pause">
+                            @csrf
+                            <button
+                                class="btn btn-primary btn-lg"
+                                type="button"
+                                id="end-pause-btn"
+                                name="end-pause-btn"
+                                value="end pause"
+                                disabled
+                            >end pause</button>
+                            <p id="end-pause-lbl">You did not take a break yet.</p>
+                        </div>
+                        <!-- STOP -->
                         <div id="stop">
                             @csrf
                             <button
@@ -82,13 +89,11 @@
                             >stop</button>
                             <p id="stop-lbl">To end your workday, click here!</p>
                         </div>
-                        <!-- AJAX SUCKS -->
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Vacation Planning</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -99,13 +104,11 @@
                     <div class="vacation">
                         <p>Remaining unplanned vacation in days:</p><br>
                         <!-- get from table and print here -->
-
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Feeling dizzy?</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

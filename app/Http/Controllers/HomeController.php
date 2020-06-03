@@ -62,11 +62,22 @@ class HomeController extends Controller
                 echo "crap: ", $e->getMessage(), "\n";
             }
         }
-        elseif (isset($_POST['pause_btn'])) // 2nd argument actionCounter
+        elseif (isset($_POST['start_pause_btn']))
         {
             try
             {
-                return $this->dispatch(new \App\Jobs\WorkPause());
+                return $this->dispatch(new \App\Jobs\WorkStartPause());
+            }
+            catch(\Exception $e)
+            {
+                echo "crap: ", $e->getMessage(), "\n";
+            }
+        }
+        elseif  (isset($_POST['end_pause_btn']))
+        {
+            try
+            {
+                return $this->dispatch(new \App\Jobs\WorkEndPause());
             }
             catch(\Exception $e)
             {

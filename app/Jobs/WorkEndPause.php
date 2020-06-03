@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class WorkPause implements ShouldQueue
+class WorkEndPause implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -20,7 +20,7 @@ class WorkPause implements ShouldQueue
      */
     public function __construct()
     {
-
+        //
     }
 
     /**
@@ -30,11 +30,10 @@ class WorkPause implements ShouldQueue
      */
     public function handle()
     {
-        // trigger an action on first and on second button click
         try
         {
             $id = DB::table('pauses')->insertGetId(
-                ['user_id' => auth()->user()->id, 'start_pause' => now()]
+                ['user_id' => auth()->user()->id, 'stop_pause' => now()]
             );
         }
         catch  (\Exception $e)
