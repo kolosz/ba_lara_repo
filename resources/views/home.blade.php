@@ -123,6 +123,21 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">Working hours</div>
+                <div class="card-body">
+                    <div id="calc">
+                        @csrf
+                        <button
+                            class="btn btn-primary btn-lg"
+                            type="button"
+                            id="calculate-btn"
+                            name="calculate-btn"
+                            value="calculate"
+                        >calculate</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

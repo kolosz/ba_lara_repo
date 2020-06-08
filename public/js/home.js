@@ -16,7 +16,7 @@ $(document).ready(function(){
         console.log("2");
 
         $.ajax({
-            type: 'post',
+            type: "post",
             url: "/home",
             data: { start_btn: "start_btn"},
             success: function(result){
@@ -45,7 +45,7 @@ $(document).ready(function(){
         });
 
         $.ajax({
-            type: 'post',
+            type: "post",
             url: "/home",
             data: { stop_btn: "stop-btn"},
             success: function(result){
@@ -77,7 +77,7 @@ $(document).ready(function(){
         });
 
         $.ajax({
-            type: 'post',
+            type: "post",
             url: "/home",
             data: { start_pause_btn: "start-pause-btn" },
             success: function (result) {
@@ -107,7 +107,7 @@ $(document).ready(function(){
         });
 
         $.ajax({
-            type: 'post',
+            type: "post",
             url: "/home",
             data: { end_pause_btn: "end-pause-btn" },
             success: function (result) {
@@ -117,7 +117,34 @@ $(document).ready(function(){
                 // hide and seek
                 $('#start-pause').show();
                 $('#end-pause').hide();
-                $('#stop-btn').prop('disabled', false);5
+                $('#stop-btn').prop('disabled', false);
+            },
+            error: function (result) {
+                alert("error");
+            }
+        })
+
+    })
+
+    $('#calculate-btn').click(function(e) {
+        e.preventDefault();
+
+        console.log("flag 1");
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        console.log("flag 2");
+
+        $.ajax({
+            type: "post",
+            url: "/home",
+            data: { calculate_btn: "calculate-btn" },
+            success: function (result) {
+                console.log("worked");
             },
             error: function (result) {
                 alert("error");

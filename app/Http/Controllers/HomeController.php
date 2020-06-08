@@ -84,6 +84,17 @@ class HomeController extends Controller
                 echo "crap: ", $e->getMessage(), "\n";
             }
         }
+        elseif (isset($_POST['calculate_btn']))
+        {
+            try
+            {
+                return $this->dispatch(new \App\Jobs\CalculateWorkingHours());
+            }
+            catch(\Exception $e)
+            {
+                echo "crap: ", $e->getMessage(), "\n";
+            }
+        }
     }
 
 

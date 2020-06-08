@@ -16,7 +16,7 @@ class WorkingHours extends Migration
         Schema::create('working_hours', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->double('');
+            $table->double('working_hours');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
