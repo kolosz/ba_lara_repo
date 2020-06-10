@@ -32,9 +32,11 @@ class WorkStartPause implements ShouldQueue
     {
         try
         {
-            $id = DB::table('pauses')->insertGetId(
-                ['user_id' => auth()->user()->id, 'start_pause' => now()]
+            $id = DB::table('times')->insertGetId(
+                ['user_id' => auth()->user()->id, 'clocked_in' => now(), 'type'=>"pause", 'created_at' => now(), 'updated_at' => now()]
             );
+
+            echo $id;
         }
         catch  (\Exception $e)
         {

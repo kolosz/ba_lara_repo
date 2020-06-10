@@ -33,8 +33,10 @@ class WorkStart implements ShouldQueue
         try
         {
             $id = DB::table('times')->insertGetId(
-                ['user_id' => auth()->user()->id, 'clocked_in' => now()]
+                ['user_id' => auth()->user()->id, 'clocked_in' => now(), 'type'=>"work", 'created_at' => now(), 'updated_at' => now()]
             );
+
+            echo $id;
         }
         catch(\Exception $e)
         {

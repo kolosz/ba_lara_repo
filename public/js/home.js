@@ -20,6 +20,7 @@ $(document).ready(function(){
             url: "/home",
             data: { start_btn: "start_btn"},
             success: function(result){
+                console.log(result);
                 console.log(result.responseText);
                 alert("Welcome!");
                 $("#start-lbl").text("You start working at: " + new Date($.now()));
@@ -49,7 +50,9 @@ $(document).ready(function(){
             url: "/home",
             data: { stop_btn: "stop-btn"},
             success: function(result){
+                console.log(result);
                 console.log(result.responseText);
+
                 alert("Bye. See you soon.");
                 $("#stop-lbl").text("You stopped working at: " + new Date($.now()));
                 // hide and seek
@@ -81,6 +84,8 @@ $(document).ready(function(){
             url: "/home",
             data: { start_pause_btn: "start-pause-btn" },
             success: function (result) {
+                console.log(result);
+
                 alert("Enjoy your break!");
                 // <p>
                 $("#end-pause-lbl").text("You started your break at: " + new Date($.now()));
@@ -111,6 +116,8 @@ $(document).ready(function(){
             url: "/home",
             data: { end_pause_btn: "end-pause-btn" },
             success: function (result) {
+                console.log(result);
+
                 alert("Welcome to the 2nd half!");
                 // <p>
                 $("#start-pause-lbl").text("You ended your break at: " + new Date($.now()));

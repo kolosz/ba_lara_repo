@@ -133,14 +133,14 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\ba_lara_repo" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\time_recording\app" />
       <recent name="C:\xampp\htdocs\time_recording\app\Providers" />
       <recent name="C:\xampp\htdocs\time_recording\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\time_recording\resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ba_lara_repo" />
     </key>
   </component>
   <component name="RunManager">
@@ -182,7 +182,7 @@
       <workItem from="1587974540470" duration="3253000" />
       <workItem from="1588143954923" duration="88020000" />
       <workItem from="1590567681589" duration="49840000" />
-      <workItem from="1591689904822" duration="9086000" />
+      <workItem from="1591689904822" duration="14908000" />
     </task>
     <servers />
   </component>
