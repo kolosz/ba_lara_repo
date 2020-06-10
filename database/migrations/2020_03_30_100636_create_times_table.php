@@ -18,6 +18,7 @@ class CreateTimesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->timestamp('clocked_in')->nullable(true);
             $table->timestamp('clocked_out')->nullable(true);
+            $table->text('type');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();

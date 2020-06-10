@@ -30,21 +30,20 @@ class CalculateWorkingHours implements ShouldQueue
      */
     public function handle()
     {
-        try {
-            // get all rows where user_id === current user
-            $userTimes = DB::table('times')->insertGetId(
-                ['user_id' => auth()->user()->id]
-            );
-
-            echo $userTimes;
-        }
-        catch  (\Exception $e)
-        {
-            echo $e;
-        }
-
-        // sort them by date ->today() ?
         // sort them by time
+        $today = today();
+
+        //echo $today;
+
+        $userTimes = DB::table('times')
+            ->where('user_id', auth()->user()->id )
+            ->whereDate('clocked_in', '>', $today)
+            ->orderBy('clocked_in', 'desc')
+            ->get();
+
+        // query von laravel
+
+        echo $userTimes;
 
         // if oldest is start -> set end to now() ->calculate
 
@@ -53,6 +52,8 @@ class CalculateWorkingHours implements ShouldQueue
         // after that do the same thing with pause
 
         // work hour - pause === working hours
+
+        // save working hours in table
 
     }
 }

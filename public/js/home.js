@@ -144,6 +144,7 @@ $(document).ready(function(){
             url: "/home",
             data: { calculate_btn: "calculate-btn" },
             success: function (result) {
+                console.log(result);
                 console.log("worked");
             },
             error: function (result) {
