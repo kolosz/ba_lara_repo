@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use DateTime;
 use DB;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,9 +31,8 @@ class CalculateWorkingHours implements ShouldQueue
      */
     public function handle()
     {
-
         $today = today();
-        //echo $today;
+        $difference_in_seconds = 0;
 
         $userTimes = DB::table('times')
             ->where('user_id', auth()->user()->id )
@@ -40,13 +40,44 @@ class CalculateWorkingHours implements ShouldQueue
             ->where('type', "work")
             ->get();
 
-        echo $userTimes;
+        $userPauses = DB::table('times')
+            ->where('user_id', auth()->user()->id)
+            ->where('created_at', '>', $today)
+            ->where('type', "pause")
+            ->get();
+
+        $arr = json_decode($userTimes, true);
+
+        foreach ($arr as $row)
+        {
+            if ($row["type"] === "work")
+            {
+                /*
+                $datetime1 = new DateTime($row['clocked_in']);
+                $datetime2 = new DateTime($row['clocked_out']);
+
+                $interval = $datetime1->diff($datetime2);
+                */
+
+                $difference_in_seconds = strtotime($row['clocked_out']) - strtotime($row['clocked_in']) . "\n";
+
+                echo $difference_in_seconds;
+            }
+            elseif ($row["type"] === "pause")
+            {
+               // echo $difference_in_seconds -= strtotime($row['clocked_out']) - strtotime($row['clocked_in']) . "\n";
+                echo "pause";
+            }
+        }
+
+        /*
+        $workTime = DB::table('working_hours')->insertGetId(
+            ['user_id' => auth()->user()->id, 'working_hours' => $difference_in_seconds, 'created_at' => now(), 'updated_at' => now()]
+        );
+
+        echo $workTime;
+        */
 
         // if oldest is start -> set end to now() ->calculate
-
-        // work hour - pause === working hours
-
-        // save working hours in table
-
     }
 }

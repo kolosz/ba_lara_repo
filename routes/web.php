@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -43,8 +44,6 @@ Route::group(['middleware'=> ['auth']], function() {
     Route::get('/admin_base/remove-admin/{userId}', 'AdminController@removeAdmin');
     Route::get('/admin_base/give-admin/{userId}', 'AdminController@giveAdmin');
 });
-
-
 
 
 //Route::get('/home', 'HomeController@index')->name('home.index');

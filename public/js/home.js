@@ -136,15 +136,11 @@ $(document).ready(function(){
     $('#calculate-btn').click(function(e) {
         e.preventDefault();
 
-        console.log("flag 1");
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
-        console.log("flag 2");
 
         $.ajax({
             type: "post",
@@ -152,7 +148,6 @@ $(document).ready(function(){
             data: { calculate_btn: "calculate-btn" },
             success: function (result) {
                 console.log(result);
-                console.log("worked");
             },
             error: function (result) {
                 alert("error");

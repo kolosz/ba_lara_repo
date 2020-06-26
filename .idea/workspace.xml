@@ -182,7 +182,7 @@
       <workItem from="1587974540470" duration="3253000" />
       <workItem from="1588143954923" duration="88020000" />
       <workItem from="1590567681589" duration="49840000" />
-      <workItem from="1591689904822" duration="14908000" />
+      <workItem from="1591689904822" duration="78350000" />
     </task>
     <servers />
   </component>
@@ -232,10 +232,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="334" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1586164913954" />
-    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1589456699760">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1592669928131">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1586164885966" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592669928131" />
     <state x="-1126" y="443" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1589456699760" />
     <state x="-1427" y="157" key="SettingsEditor" timestamp="1591690391355">
       <screen x="-1920" y="0" width="1920" height="1040" />

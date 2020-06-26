@@ -39,9 +39,6 @@ class WorkStop implements ShouldQueue
                 ->update(
                     ['clocked_out' => now(), 'updated_at' => now()]
                 );
-
-            echo $stopTime;
-
         }
         catch(\Exception $e)
         {
